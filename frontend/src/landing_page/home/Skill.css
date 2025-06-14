@@ -1,0 +1,44 @@
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00ffff;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.skill-category {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 40px 0 20px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.badge-custom {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 10px;
+  padding: 15px 20px;
+  width: 150px;
+  text-align: center;
+  color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.badge-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00ffff;
+  cursor: pointer;
+}
+
+.badge-custom img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.badge-custom span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+}

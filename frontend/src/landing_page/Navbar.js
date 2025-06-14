@@ -1,34 +1,31 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import './Navbar.css'; // External CSS for styles
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "rgb(8, 4, 4)" }} >
-            <div className="container p-2">
-                <Link className="navbar-brand" to="/">
-                    <img src='media/images/Logo.png' style={{ width: "20%" }} alt='Site Logo' />
+        <nav className="navbar navbar-expand-lg custom-navbar fixed-top shadow-sm">
+            <div className="container">
+                <Link className="navbar-brand d-flex align-items-center" to="/">
+                    <img src='media/images/Logo.png' className='logo-img me-2' alt='Logo' />
+                    <span className="brand-name">Anurag</span>
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div className="d-flex">
-                        <ul className="navbar-nav me-auto  mb-lg-0">
-                            {/* <li className="nav-item">
-                                <Link className="nav-link active" to="/home" style={{ color: "rgba(254, 185, 1, 1)" }}>Home</Link>
-                            </li> */}
-                            <li className="nav-item">
-                                <Link id='same' className="nav-link active" to="/about"  >About</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link id='same' className="nav-link active" to="/project" >Project</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link id='same' className="nav-link active" to="/contact" >Contact</Link>
-                            </li>
-                        </ul>
-                    </div>
+                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul className="navbar-nav text-center">
+                        <li className="nav-item">
+                            <Link className="nav-link nav-text" to="/about">About</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link nav-text" to="/project">Project</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link nav-text" to="/contact">Contact</Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

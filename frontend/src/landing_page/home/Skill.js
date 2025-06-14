@@ -1,47 +1,56 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
+import './Skill.css'; // 👈 Custom CSS
 
 function Skill() {
     return ( 
         <div className='container p-5 mb-5'>
             <div className='row p-5 mt-5 nb-5 border-top' id='sa'>
-                <h1 className='text-center mt-5'>SKILL</h1>
+                <h1 className='text-center mt-5 section-title'>SKILLS</h1>
             </div>
             <div className='row text-center'>
-                <h2 class="section-title">🎨 Design Tools I Use</h2>
-               <div class="d-flex flex-wrap justify-content-center mb-4">
-               <div class="badge-custom"><img src="https://img.icons8.com/color/48/000000/adobe-xd.png"/> AdobeXD</div>
-               <div class="badge-custom"><img src="https://img.icons8.com/color/48/000000/figma.png"/> Figma</div>
-               </div>
+                <h2 className="skill-category">🎨 Design Tools I Use</h2>
+                <div className="d-flex flex-wrap justify-content-center mb-4">
+                    <div className="badge-custom">
+                        <img src="https://img.icons8.com/color/48/000000/adobe-xd.png" />
+                        <span>Adobe XD</span>
+                    </div>
+                    <div className="badge-custom">
+                        <img src="https://img.icons8.com/color/48/000000/figma.png" />
+                        <span>Figma</span>
+                    </div>
+                </div>
 
-               <h2 class="section-title">🛠 Technologies I Use</h2>
-               <div class="d-flex flex-wrap justify-content-center">
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=20909&format=png&color=000000' /> HTML5</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=21278&format=png&color=000000' />  CSS</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=laVIsJnTtYoj&format=png&color=000000' /> JavaScript</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000' /> React.js</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=g9mmSxx3SwAI&format=png&color=000000' /> Bootstrap</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000' /> TailwindCSS</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=evasjCvrqrHU&format=png&color=000000' /> Firebase</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=yUdJlcKanVbh&format=png&color=000000' /> Next.js</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=gFw7X5Tbl3ss&format=png&color=000000' /> Material UI</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=2ZOaTclOqD4q&format=png&color=000000' /> Express.js</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000' /> Node.js</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=62856&format=png&color=000000' /> Git</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=efFfwotdkiU5&format=png&color=000000' /> GitHub</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=74402&format=png&color=000000' /> MongoDB</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=JloqPm4xGSKW&format=png&color=000000' /> Render</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=99262&format=png&color=000000' /> Vercal</div>
-                    <div class="badge-custom"><img src='https://img.icons8.com/?size=100&id=33039&format=png&color=000000' /> Amazon Web Service</div>
-               </div>
+                <h2 className="skill-category">🛠 Technologies I Use</h2>
+                <div className="d-flex flex-wrap justify-content-center">
+                    {[
+                        { img: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000", name: "HTML5" },
+                        { img: "https://img.icons8.com/?size=100&id=21278&format=png&color=000000", name: "CSS" },
+                        { img: "https://img.icons8.com/?size=100&id=laVIsJnTtYoj&format=png&color=000000", name: "JavaScript" },
+                        { img: "https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000", name: "React.js" },
+                        { img: "https://img.icons8.com/?size=100&id=g9mmSxx3SwAI&format=png&color=000000", name: "Bootstrap" },
+                        { img: "https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000", name: "TailwindCSS" },
+                        { img: "https://img.icons8.com/?size=100&id=evasjCvrqrHU&format=png&color=000000", name: "Firebase" },
+                        { img: "https://img.icons8.com/?size=100&id=yUdJlcKanVbh&format=png&color=000000", name: "Next.js" },
+                        { img: "https://img.icons8.com/?size=100&id=gFw7X5Tbl3ss&format=png&color=000000", name: "Material UI" },
+                        { img: "https://img.icons8.com/?size=100&id=2ZOaTclOqD4q&format=png&color=000000", name: "Express.js" },
+                        { img: "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000", name: "Node.js" },
+                        { img: "https://img.icons8.com/?size=100&id=62856&format=png&color=000000", name: "Git" },
+                        { img: "https://img.icons8.com/?size=100&id=efFfwotdkiU5&format=png&color=000000", name: "GitHub" },
+                        { img: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000", name: "MongoDB" },
+                        { img: "https://img.icons8.com/?size=100&id=JloqPm4xGSKW&format=png&color=000000", name: "Render" },
+                        { img: "https://img.icons8.com/?size=100&id=99262&format=png&color=000000", name: "Vercel" },
+                        { img: "https://img.icons8.com/?size=100&id=33039&format=png&color=000000", name: "AWS" }
+                    ].map((tool, index) => (
+                        <div className="badge-custom" key={index}>
+                            <img src={tool.img} />
+                            <span>{tool.name}</span>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     );
 }
 
 export default Skill;
-
-
-  
-
-

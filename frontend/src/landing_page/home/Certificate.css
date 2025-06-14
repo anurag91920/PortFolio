@@ -1,0 +1,45 @@
+.section-title {
+  font-size: 3rem;
+  color: #00ffff;
+  text-shadow: 2px 2px 5px #000;
+}
+
+.certificate-card {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 255, 255, 0.4);
+}
+
+.certificate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Optional: Add fade-in animation on scroll */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.certificate-card {
+  animation: fadeInUp 0.6s ease forwards;
+}

@@ -1,0 +1,56 @@
+/* Hero.css */
+
+.hero-section {
+  color: #fff;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  border-top: 3px solid #febe01;
+  border-radius: 12px;
+}
+
+.hero-image {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #febe01;
+  transition: transform 0.3s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(254, 185, 1, 0.5);
+}
+
+.hero-name {
+  font-weight: bold;
+  color: #febe01;
+}
+
+.hero-title {
+  font-size: 1.2rem;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.hero-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #f1f1f1;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  .hero-title {
+    font-size: 1rem;
+  }
+}
