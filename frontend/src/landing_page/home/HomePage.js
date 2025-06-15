@@ -5,7 +5,6 @@ import Education from './Education';
 import Skill from './Skill';
 import Certificate from './Certificate';
 import Resume from './Resume';
-import Mapavtar from './Mapavtar';
 
 function HomePage () {
     return (
@@ -15,7 +14,6 @@ function HomePage () {
           <Skill />
           <Certificate />
           <Resume />
-          <Mapavtar />
         </>
     );
 }
