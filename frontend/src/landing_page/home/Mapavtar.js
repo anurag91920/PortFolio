@@ -16,7 +16,7 @@ const center = {
 
 const MapAvatar = () => {
   return (
-    <LoadScript googleMapsApiKey="AIzaSyBTsKsnsuCxRKn4YIXUo0TRTvWVMCOPoWM">
+    <LoadScript googleMapsApiKey="MAP_APIKEY">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
