@@ -1,5 +1,5 @@
 import React from 'react';
-import './Hero.css'; // ✅ Link this new CSS file
+import './Hero.css'; //  Link this new CSS file
 
 function Hero() {
     return (
@@ -22,7 +22,7 @@ function Hero() {
                                 or leisure, CozyStay offers a consistent, warm, and welcoming experience.
                             </p>
                             <a
-                                href="https://firsts-project.onrender.com"
+                                href="https://firsts-project.onrender.com/listings"
                                 className="btn btn-primary project-btn"
                                 target="_blank"
                                 rel="noopener noreferrer"
