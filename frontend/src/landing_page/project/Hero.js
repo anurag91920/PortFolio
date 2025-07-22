@@ -45,7 +45,7 @@ function Hero() {
                                 intuitive trading experiences for all.
                             </p>
                             <a
-                                href="https://seconds-projects-1.onrender.com"
+                                href="https://trade-nests-frontend.vercel.app/"
                                 className="btn btn-primary project-btn"
                                 target="_blank"
                                 rel="noopener noreferrer"
