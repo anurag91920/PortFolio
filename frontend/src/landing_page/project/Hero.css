@@ -1,3 +1,4 @@
+/* Container and Section Styling */
 #projects {
     color: #f1f1f1;
 }
@@ -14,6 +15,7 @@
     margin: 0 auto;
 }
 
+/* Project Card Styling */
 .project-card {
     background-color: #1a1a1a;
     border-radius: 12px;
@@ -28,12 +30,14 @@
     box-shadow: 0 8px 20px rgba(254, 190, 1, 0.4);
 }
 
+/* Image Styling */
 .project-img {
     width: 100%;
     height: 260px;
     object-fit: cover;
 }
 
+/* Card Body Styling */
 .project-body {
     padding: 1.5rem;
 }
@@ -50,12 +54,17 @@
     margin: 1rem 0;
 }
 
+/* Button Styling */
 .project-btn {
     font-weight: 600;
     background-color: #febe01;
     border: none;
     color: #000;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 0.5rem 1.2rem;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
 }
 
 .project-btn:hover {
