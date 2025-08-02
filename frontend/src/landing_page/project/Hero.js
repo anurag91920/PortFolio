@@ -1,5 +1,5 @@
 import React from 'react';
-import './Hero.css'; // ✅ Link this new CSS file
+import './Hero.css'; // Link this new CSS file
 
 function Hero() {
     return (
@@ -22,7 +22,7 @@ function Hero() {
                                 or leisure, CozyStay offers a consistent, warm, and welcoming experience.
                             </p>
                             <a
-                                href="https://firsts-project.onrender.com"
+                                href="https://cozy-stay-yths.onrender.com/listings"
                                 className="btn btn-primary project-btn"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -45,7 +45,7 @@ function Hero() {
                                 intuitive trading experiences for all.
                             </p>
                             <a
-                                href="https://seconds-projects-1.onrender.com"
+                                href="https://trade-nests-frontend.vercel.app/"
                                 className="btn btn-primary project-btn"
                                 target="_blank"
                                 rel="noopener noreferrer"
