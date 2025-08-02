@@ -22,7 +22,7 @@ function Hero() {
                                 or leisure, CozyStay offers a consistent, warm, and welcoming experience.
                             </p>
                             <a
-                                href="https://firsts-project.onrender.com/listings"
+                                href="https://cozy-stay-yths.onrender.com/listings"
                                 className="btn btn-primary project-btn"
                                 target="_blank"
                                 rel="noopener noreferrer"
