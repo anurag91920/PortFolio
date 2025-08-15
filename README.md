@@ -39,5 +39,23 @@ A personal portfolio website built with the **MERN stack (MongoDB, Express, Reac
 
 ---
 
-## 📦 Project Structure
+## 📷 Screenshots
+
+Add screenshots of the homepage, projects section, and contact form here.
+
+📌 Future Enhancements
+
+Add admin dashboard for dynamic content management
+
+Blog or article publishing
+
+Dark/light mode toggle
+
+User login and authentication for edit access
+
+🧑 Author
+
+Anurag
+📧 Email: anurag9120959628@gmail.com
+🔗 Portfolio: https://port-folio-one-red.vercel.app
 
