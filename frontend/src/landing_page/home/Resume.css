@@ -17,6 +17,13 @@
   box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
 }
 
+.container p {
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 20px 0;
+}
+
 .resume-btn.view {
   background: linear-gradient(to right, #00c6ff, #0072ff);
   color: white;
