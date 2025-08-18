@@ -33,7 +33,7 @@ function Certificate() {
         <div className='certificate-section container py-5'>
             <div className='text-center mb-5 border-top pt-5' id='sa'>
                 <h1 className='fw-bold section-title'>🏅 Certificates</h1>
-                <p className='text-muted fs-5'>Here are some of my proud achievements</p>
+                <p className='text fs-5'>Here are some of my proud achievements</p>
             </div>
 
             <div className='row'>
@@ -41,7 +41,7 @@ function Certificate() {
                     <div className='col-12 col-md-6 mb-4' key={index}>
                         <div className='certificate-item'>
                             <h5 className='fw-bold mb-1'>{cert.title}</h5>
-                            <p className='text-muted mb-1'>{cert.provider} | {cert.year}</p>
+                            <p className='text mb-1'>{cert.provider} | {cert.year}</p>
                             <a
                                 href={cert.link}
                                 target='_blank'

@@ -10,7 +10,7 @@ function Resume() {
         <div className='container p-5 mb-5'>
             <div className='row p-5 mt-5 mb-5 border-top' id='sa'>
                 <h1 className='text-center mt-5 section-title'>📄 Resume</h1>
-                <p className='text-center text-muted fs-5'>Download or view my resume</p>
+                <p className='text-center text fs-5'>Download or view my resume</p>
             </div>
 
             <div className='text-center'>
