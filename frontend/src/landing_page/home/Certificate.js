@@ -19,13 +19,13 @@ function Certificate() {
             title: 'Full Stack Web Development',
             provider: 'APANA COLLEGE (Shradha Khapara)',
             year: '2024',
-            link: 'media/images/Cer3.jpg'
+            link: 'media/images/Cer3.png'
         },
         {
             title: 'DSA WITH JAVA',
             provider: 'APANA COLLEGE (Shradha Khapara)',
             year: '2024',
-            link: 'media/images/Cer4.jpg'
+            link: 'media/images/Cer4.png'
         },
     ];
 
