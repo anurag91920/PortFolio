@@ -23,7 +23,7 @@ function Education() {
                       <h3>2022 - 2026</h3>
                       <h3>Computer Science Engineering</h3>
                       <p>Bachelor of Technology in Computer Science & Engineering Student</p>
-                      <h4>CGPA : <span className='highlight'>7.25</span></h4>
+                      <h4>CGPA : <span className='highlight'>7.31</span></h4>
                   </div>
                </div>
            </div>
