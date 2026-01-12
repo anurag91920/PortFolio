@@ -40,7 +40,8 @@ function Skill() {
                         { img: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000", name: "MongoDB" },
                         { img: "https://img.icons8.com/?size=100&id=JloqPm4xGSKW&format=png&color=000000", name: "Render" },
                         { img: "https://img.icons8.com/?size=100&id=99262&format=png&color=000000", name: "Vercel" },
-                        { img: "https://img.icons8.com/?size=100&id=33039&format=png&color=000000", name: "AWS" }
+                        { img: "https://img.icons8.com/?size=100&id=33039&format=png&color=000000", name: "AWS" },
+                        { img: "https://img.icons8.com/?size=100&id=74402&format=png&color=000000", name: "MySql" },
                     ].map((tool, index) => (
                         <div className="badge-custom" key={index}>
                             <img src={tool.img} />
