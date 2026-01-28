@@ -3,7 +3,7 @@ import './Resume.css'; // 👈 External CSS for styling
 
 function Resume() {
     const handleResumeOpen = () => {
-        window.open('media/resume.pdf', '_blank');
+        window.open('media/Ats Resume 100.pdf', '_blank');
     };
 
     return (
