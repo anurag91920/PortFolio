@@ -43,7 +43,7 @@ function Hero() {
                 <div className='col-12 col-md-6 p-5 text-center'>
                     <div className="image-container mx-auto">
                         <img
-                            src='media/images/PC.jpg'
+                            src='media/images/anuragimg.jpg'
                             alt='Anurag Chaurasiya'
                             className='hero-image'
                         />

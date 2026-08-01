@@ -8,7 +8,7 @@ function Hero() {
 
                 <div className='col-12 col-md-6 text-center'>
                     <img
-                        src='media/images/ac.jpg'
+                        src='media/images/anuragimg.jpg'
                         alt='Anurag Chaurasiya'
                         className='hero-image'
                     />

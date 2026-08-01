@@ -6,7 +6,7 @@ function Footer() {
         <footer className="footer">
             <div className="container text-center">
                 <hr className="footer-line" />
-                <p className="footer-text">© 2025 All rights reserved.</p>
+                <p className="footer-text">© 2026 All rights reserved.</p>
 
                 <div className="social-links">
                     <a href="https://github.com/anurag91920" target="_blank" rel="noopener noreferrer" className="footer-btn">
