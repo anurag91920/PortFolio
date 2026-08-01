@@ -1,5 +1,5 @@
 import React from 'react';
-import './Resume.css'; // 👈 External CSS for styling
+import './Resume.css'; 
 
 function Resume() {
     const handleResumeOpen = () => {
@@ -9,7 +9,7 @@ function Resume() {
     return (
         <div className='container p-5 mb-5'>
             <div className='row p-5 mt-5 mb-5 border-top' id='sa'>
-                <h1 className='text-center mt-5 section-title'>📄 Resume</h1>
+                <h1 className='text-center mt-5 section-title'>Resume</h1>
                 <p className='text-center text fs-5'>Download or view my resume</p>
             </div>
 
@@ -19,7 +19,7 @@ function Resume() {
                 </button>
 
                 <a href='media/ats-resume-2026.pdf' download className='resume-btn download'>
-                    Download Resume
+                    Download Resumes
                 </a>
             </div>
         </div>

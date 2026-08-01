@@ -1,5 +1,5 @@
 import React from 'react';
-import './Education.css'; // 👈 CSS file ko alag se link karein
+import './Education.css'; 
 
 function Education() {
     return ( 
@@ -19,11 +19,11 @@ function Education() {
                </div>
                <div className='col-md-6'>
                   <div className='education-info'>
-                      <h2>Deen Dayal Upadhyaya Gorakhpur University, Gorakhpur</h2>
-                      <h3>2022 - 2026</h3>
+                      <h2>IET Deen Dayal Upadhyaya Gorakhpur University, Gorakhpur</h2>
+                      <h3>May 2022 - May 2026</h3>
                       <h3>Computer Science Engineering</h3>
                       <p>Bachelor of Technology in Computer Science & Engineering Student</p>
-                      <h4>CGPA : <span className='highlight'>7.5</span></h4>
+                      <h4>CGPA : <span className='highlight'>7.50</span></h4>
                   </div>
                </div>
            </div>
