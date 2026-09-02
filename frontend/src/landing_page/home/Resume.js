@@ -3,7 +3,7 @@ import './Resume.css';
 
 function Resume() {
     const handleResumeOpen = () => {
-        window.open('media/ats-resume-2026.pdf', '_blank');
+        window.open('media/Ats Resume 100.pdf', '_blank');
     };
 
     return (
@@ -18,7 +18,7 @@ function Resume() {
                     View Resume
                 </button>
 
-                <a href='media/ats-resume-2026.pdf' download className='resume-btn download'>
+                <a href='media/Ats Resume 100.pdf' download className='resume-btn download'>
                     Download Resumes
                 </a>
             </div>
