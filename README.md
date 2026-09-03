@@ -2,7 +2,7 @@
 
 A personal portfolio website built with the **MERN stack (MongoDB, Express, React, Node.js)** that showcases projects, skills, education, experience, and contact details. The site features smooth UI components, interactive animations, a contact form integrated with **EmailJS**, and Google Maps API integration.
 
-🔗 Live Site: [https://port-folio-one-red.vercel.app](https://port-folio-one-red.vercel.app)
+🔗 Live Site: [https://portfolio-ebon-tau-92.vercel.app/]
 
 ---
 
@@ -57,5 +57,5 @@ User login and authentication for edit access
 
 Anurag
 📧 Email: anurag9120959628@gmail.com
-🔗 Portfolio: https://port-folio-one-red.vercel.app
+🔗 Portfolio: https://portfolio-ebon-tau-92.vercel.app/
 
