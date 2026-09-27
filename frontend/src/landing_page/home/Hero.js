@@ -4,63 +4,134 @@ import './Hero.css';
 
 function Hero() {
     const typingRef = useRef(null);
+    const imageWrapRef = useRef(null);
     const words = ['MERN Stack Developer', 'Web Designer', 'Problem Solver'];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
 
+    /* ---------- Typing Animation ---------- */
     useEffect(() => {
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let timeoutId;
+
         const type = () => {
             const currentWord = words[wordIndex];
             const currentText = currentWord.substring(0, charIndex);
 
             if (typingRef.current) {
-                typingRef.current.innerHTML = currentText;
+                typingRef.current.textContent = currentText;
             }
 
-            if (!isDeleting && charIndex < currentWord.length) {
-                charIndex++;
-            } else if (isDeleting && charIndex > 0) {
-                charIndex--;
-            } else if (!isDeleting && charIndex === currentWord.length) {
+            let typeSpeed = isDeleting ? 40 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 1800;
                 isDeleting = true;
-                setTimeout(type, 1000);
-                return;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 400;
+            } else {
+                charIndex += isDeleting ? -1 : 1;
             }
 
-            setTimeout(type, isDeleting ? 60 : 120);
+            timeoutId = setTimeout(type, typeSpeed);
         };
 
-        type();
+        timeoutId = setTimeout(type, 500);
+        return () => clearTimeout(timeoutId);
+    }, []);
+
+    /* ---------- 3D Tilt on Mouse Move ---------- */
+    useEffect(() => {
+        const wrap = imageWrapRef.current;
+        if (!wrap) return;
+
+        const handleMove = (e) => {
+            const rect = wrap.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateY = ((x - centerX) / centerX) * 10;
+            const rotateX = ((centerY - y) / centerY) * 10;
+
+            wrap.style.setProperty('--rx', `${rotateX}deg`);
+            wrap.style.setProperty('--ry', `${rotateY}deg`);
+        };
+
+        const handleLeave = () => {
+            wrap.style.setProperty('--rx', '0deg');
+            wrap.style.setProperty('--ry', '0deg');
+        };
+
+        wrap.addEventListener('mousemove', handleMove);
+        wrap.addEventListener('mouseleave', handleLeave);
+
+        return () => {
+            wrap.removeEventListener('mousemove', handleMove);
+            wrap.removeEventListener('mouseleave', handleLeave);
+        };
     }, []);
 
     return (
-        <div className='container'>
-            <div className='row p-5 mt-5 text-muted fs-6 border-top align-items-center'>
-                <div className='col-12 col-md-6 p-5 text-center'>
-                    <div className="image-container mx-auto">
-                        <img
-                            src='media/images/anuragimg.jpg'
-                            alt='Anurag Chaurasiya'
-                            className='hero-image'
-                        />
+        <section className='hero-section' id='hero'>
+            {/* Background */}
+            <div className='hero-bg-glow hero-bg-glow-1'></div>
+            <div className='hero-bg-glow hero-bg-glow-2'></div>
+            <div className='hero-grid-overlay'></div>
+
+            <div className='container hero-container'>
+                <div className='row align-items-center g-4 g-md-5'>
+
+                    {/* Image */}
+                    <div className='col-12 col-md-6 text-center order-md-2'>
+                        <div className='image-stage' ref={imageWrapRef}>
+                            <div className='image-ring-outer'></div>
+                            <div className='image-ring-inner'></div>
+                            <div className='image-glow'></div>
+
+                            <div className='image-frame'>
+                                <img
+                                    src='media/images/anuragimg.jpg'
+                                    alt='Anurag Chaurasiya'
+                                    className='hero-image'
+                                />
+                                <div className='image-shine'></div>
+                            </div>
+
+                            {/* Floating badges */}
+                            <div className='float-badge badge-1'>⚛️ React</div>
+                            <div className='float-badge badge-2'>🟢 Node</div>
+                            <div className='float-badge badge-3'>🍃 Mongo</div>
+                        </div>
                     </div>
-                </div>
-                <div className='col-12 col-md-6 p-5 fs-5 text-center text-md-start' id='her'>
-                    <h1 className='highlight'>
-                        Hello!, I'm <span className='name'>Anurag Chaurasiya</span>
-                    </h1>
-                    <div className='typing'>
-                        <span className='iama'>I am a </span>
-                        <span ref={typingRef} className="typewriter-text"></span>
-                        <span className='cursor'>|</span>
+
+                    {/* Text */}
+                    <div className='col-12 col-md-6 order-md-1 text-center text-md-start'>
+                        <p className='hero-greeting'>
+                            <span className='wave'>👋</span> Hello, I'm
+                        </p>
+                        <h1 className='hero-name'>Anurag Chaurasiya</h1>
+
+                        <div className='typing-wrapper'>
+                            <span className='typing-prefix'>I am a</span>
+                            <span className='typewriter'>
+                                <span ref={typingRef} className='typewriter-text'></span>
+                                <span className='cursor'>|</span>
+                            </span>
+                        </div>
+
+                        <div className='hero-actions'>
+                            <a href='#contact' className='btn-hero btn-primary-hero'>Hire Me</a>
+                            <a href='#projects' className='btn-hero btn-ghost-hero'>View Work</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 

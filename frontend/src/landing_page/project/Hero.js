@@ -1,170 +1,252 @@
-import React from 'react';
-import Slider from 'react-slick';
+import React, { useEffect, useRef, useState } from 'react';
 import './Hero.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
-function Hero() {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 600,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: true,
+function Projects() {
+    const sectionRef = useRef(null);
+    const sliderRef = useRef(null);
+    const [current, setCurrent] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+
+    const projects = [
+        {
+            title: 'CozyStay',
+            tag: 'Full-Stack',
+            icon: '🏠',
+            img: 'media/images/Pro1.png',
+            desc: 'A collection of thoughtfully designed homes where comfort meets convenience. Built for seamless booking and warm hospitality experiences.',
+            tech: ['React', 'Node.js', 'MongoDB', 'Express'],
+            link: 'https://cozy-stay-yths.onrender.com/listings',
+        },
+        {
+            title: 'ECHOMEET',
+            tag: 'WebRTC',
+            icon: '🎥',
+            img: 'media/images/Pro3.png',
+            desc: 'A Zoom-inspired video conferencing app with real-time video, audio, screen sharing, and live chat in a clean, responsive UI.',
+            tech: ['React', 'WebRTC', 'Socket.io', 'Node.js'],
+            link: 'https://echo-meet-frontend-psi.vercel.app/',
+        },
+        {
+            title: 'Prime Earth Shop',
+            tag: 'eCommerce',
+            icon: '🛒',
+            img: 'media/images/Pro4.png',
+            desc: 'An eco-inspired eCommerce platform with full product showcase, cart flow, backend API, and modern responsive design.',
+            tech: ['React', 'Node.js', 'REST API', 'MongoDB'],
+            link: 'https://prime-earth-shop.vercel.app/',
+        },
+        {
+            title: 'TradeNest',
+            tag: 'FinTech',
+            icon: '📈',
+            img: 'media/images/Pro2.png',
+            desc: 'A modern trading platform for stocks, crypto, commodities, and forex — offering fast, secure, and intuitive experiences.',
+            tech: ['React', 'Chart.js', 'Node.js', 'API'],
+            link: 'https://trade-nests-frontend.vercel.app/',
+        },
+        {
+            title: 'WanderVista',
+            tag: 'Travel',
+            icon: '🌍',
+            img: 'media/images/Pro5.png',
+            desc: 'A modern travel planning web app to explore destinations, find trip ideas, and get inspiration with clean UI and smooth navigation.',
+            tech: ['React', 'Bootstrap', 'Node.js', 'Deploy'],
+            link: 'https://wandervista-qq8u.onrender.com/',
+        },
+    ];
+
+    const total = projects.length;
+
+    /* ---------- Autoplay ---------- */
+    useEffect(() => {
+        if (isPaused) return;
+        const interval = setInterval(() => {
+            setCurrent((prev) => (prev + 1) % total);
+        }, 5500);
+        return () => clearInterval(interval);
+    }, [isPaused, total]);
+
+    /* ---------- Scroll Reveal ---------- */
+    useEffect(() => {
+        const section = sectionRef.current;
+        if (!section) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            },
+            { threshold: 0.12 }
+        );
+
+        const elements = section.querySelectorAll('.reveal');
+        elements.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
+    const goTo = (index) => {
+        setCurrent(((index % total) + total) % total);
+    };
+
+    const next = () => goTo(current + 1);
+    const prev = () => goTo(current - 1);
+
+    /* ---------- Touch Swipe ---------- */
+    const touchStart = useRef(null);
+    const handleTouchStart = (e) => {
+        touchStart.current = e.touches[0].clientX;
+    };
+    const handleTouchEnd = (e) => {
+        if (touchStart.current === null) return;
+        const diff = e.changedTouches[0].clientX - touchStart.current;
+        if (Math.abs(diff) > 50) {
+            if (diff < 0) next();
+            else prev();
+        }
+        touchStart.current = null;
     };
 
     return (
-        <div className="container my-5" id="projects">
-            <div className="text-center mb-5">
-                <hr className="underline" />
+        <section className='projects-section-wrapper' id='projects' ref={sectionRef}>
+            <div className='proj-bg-glow proj-bg-glow-1'></div>
+            <div className='proj-bg-glow proj-bg-glow-2'></div>
+            <div className='proj-grid-overlay'></div>
+
+            <div className='container proj-container'>
+
+                {/* Title */}
+                <div className='row pt-5 mt-5 mb-5 border-top border-secondary-subtle'>
+                    <h1 className='text-center mt-5 section-title reveal'>
+                        <span className='title-line'></span>
+                        PROJECTS
+                        <span className='title-line'></span>
+                    </h1>
+                    <p className='section-subtitle reveal'>
+                        Some of my recent work &amp; experiments
+                    </p>
+                </div>
+
+                {/* Slider */}
+                <div
+                    className='slider-shell reveal'
+                    onMouseEnter={() => setIsPaused(true)}
+                    onMouseLeave={() => setIsPaused(false)}
+                    onTouchStart={handleTouchStart}
+                    onTouchEnd={handleTouchEnd}
+                    ref={sliderRef}
+                >
+                    <div
+                        className='slider-track'
+                        style={{ transform: `translateX(-${current * 100}%)` }}
+                    >
+                        {projects.map((project, index) => (
+                            <div className='slide' key={index}>
+                                <article className='project-card'>
+                                    {/* Image */}
+                                    <div className='project-image-wrap'>
+                                        <img
+                                            src={project.img}
+                                            alt={project.title}
+                                            className='project-img'
+                                            loading='lazy'
+                                        />
+                                        <div className='image-gradient'></div>
+
+                                        <span className='project-tag'>
+                                            <span className='tag-icon'>{project.icon}</span>
+                                            {project.tag}
+                                        </span>
+
+                                        <span className='project-number'>
+                                            0{index + 1} / 0{total}
+                                        </span>
+                                    </div>
+
+                                    {/* Body */}
+                                    <div className='project-body'>
+                                        <h3 className='project-title'>{project.title}</h3>
+                                        <p className='project-desc'>{project.desc}</p>
+
+                                        <div className='project-tech'>
+                                            {project.tech.map((t, i) => (
+                                                <span className='tech-chip' key={i}>{t}</span>
+                                            ))}
+                                        </div>
+
+                                        <div className='project-footer'>
+                                            <a
+                                                href={project.link}
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='project-btn'
+                                            >
+                                                <span>View Project</span>
+                                                <span className='btn-arrow'>→</span>
+                                            </a>
+
+                                            <a
+                                                href={project.link}
+                                                target='_blank'
+                                                rel='noopener noreferrer'
+                                                className='project-btn-icon'
+                                                aria-label='Open project'
+                                            >
+                                                ↗
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div className='project-shine'></div>
+                                </article>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Arrows */}
+                    <button
+                        className='slider-arrow slider-arrow-prev'
+                        onClick={prev}
+                        aria-label='Previous project'
+                    >
+                        ‹
+                    </button>
+                    <button
+                        className='slider-arrow slider-arrow-next'
+                        onClick={next}
+                        aria-label='Next project'
+                    >
+                        ›
+                    </button>
+                </div>
+
+                {/* Dots */}
+                <div className='slider-dots reveal'>
+                    {projects.map((p, i) => (
+                        <button
+                            key={i}
+                            className={`slider-dot ${i === current ? 'active' : ''}`}
+                            onClick={() => goTo(i)}
+                            aria-label={`Go to ${p.title}`}
+                        >
+                            <span className='dot-fill'></span>
+                        </button>
+                    ))}
+                </div>
+
+                {/* Counter */}
+                <div className='slider-counter reveal'>
+                    <span className='counter-current'>0{current + 1}</span>
+                    <span className='counter-divider'></span>
+                    <span className='counter-total'>0{total}</span>
+                </div>
+
             </div>
-
-            <Slider {...settings}>
-                {/* CozyStay Project */}
-                <div className="d-flex justify-content-center">
-                    <div className="project-card">
-                        <img src="media/images/Pro1.png" alt="CozyStay" className="project-img" />
-                        <div className="project-body">
-                            <h5 className="project-title">CozyStay</h5>
-                            <p className="project-desc">
-                                Welcome to Cozy Stay – a collection of thoughtfully designed homes
-                                where comfort meets convenience. Whether you're visiting for business
-                                or leisure, CozyStay offers a consistent, warm, and welcoming experience.
-                            </p>
-                            <a
-                                href="https://cozy-stay-yths.onrender.com/listings"
-                                className="btn btn-primary project-btn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View CozyStay
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* ECHOMEET Project */}
-                <div className="d-flex justify-content-center">
-                    <div className="project-card">
-                        <img src="media/images/Pro3.png" alt="ECHOMEET" className="project-img" />
-                        <div className="project-body">
-                            <h5 className="project-title">ECHOMEET</h5>
-                            <p className="project-desc">
-                                ECHOMEET is a fully functional Zoom-inspired web application that allows users to host and join video meetings directly through the browser.
-                                Built for real-time communication, it integrates video, audio, screen sharing, and chat features in a clean and responsive user interface.
-                            </p>
-                            <a
-                                href="https://echo-meet-frontend-psi.vercel.app/"
-                                className="btn btn-primary project-btn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View ECHOMEET
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Prime Earth Shop Project */}
-                <div className="d-flex justify-content-center">
-                    <div className="project-card">
-                        <img src="media/images/Pro4.png" alt="Prime Earth Shop" className="project-img" />
-                        <div className="project-body">
-                            <h5 className="project-title">Prime Earth Shop</h5>
-                            <p className="project-desc">
-                                Project Showcase: Prime Earth Shop
-                                I’m excited to share my latest full-stack project
-                                 — Prime Earth Shop — an eco-inspired eCommerce platform built from scratch!
-
-                                🛠️ Features & Highlights:
-                                * Full Featured eCommerce UI
-                                * Product Showcase with Prices
-                                * Responsive, modern design
-                                * Clean frontend flow
-                                * Backend API for product data handling
-                                * Designed with performance & usability in mind
-                            </p>
-                            <a
-                                href="https://prime-earth-shop.vercel.app/"
-                                className="btn btn-primary project-btn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View Prime Earth Shop
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* TradeNest Project */}
-                <div className="d-flex justify-content-center">
-                    <div className="project-card">
-                        <img src="media/images/Pro2.png" alt="TradeNest" className="project-img" />
-                        <div className="project-body">
-                            <h5 className="project-title">TradeNest</h5>
-                            <p className="project-desc">
-                                TradeNest is an innovative and user-friendly trading platform for
-                                stocks, crypto, commodities, and forex — offering fast, secure, and
-                                intuitive trading experiences for all.
-                            </p>
-                            <a
-                                href="https://trade-nests-frontend.vercel.app/"
-                                className="btn btn-primary project-btn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View TradeNest
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                {/* WanderVista Project */}
-                <div className="d-flex justify-content-center">
-                    <div className="project-card">
-                        <img src="media/images/Pro5.png" alt="WanderVista" className="project-img" />
-                        <div className="project-body">
-                            <h5 className="project-title">WanderVista</h5>
-                            <p className="project-desc">
-                                WanderVista – Travel Planning Web Application
-
-                                WanderVista ek modern travel planning web application hai jo users ko destinations explore karne, trip ideas lene aur travel inspiration paane mein help karta hai.
-                                 Is project ka focus clean UI, smooth navigation aur user-friendly experience par hai.
-
-                                Is website ko responsive design ke saath develop kiya gaya hai taaki desktop aur mobile dono par seamless experience mile.
-                                 Project mein structured layout, visually engaging sections aur practical travel-focused features implement kiye gaye hain,
-                                  jo real-world web development skills ko showcase karte hain.
-
-                               Key Highlights:
-
-                              * Clean & responsive user interface
-                              * Modern frontend design principles
-                              * Easy navigation and smooth user experience
-                              * Real-world travel website concept
-                              * Deployed live using cloud hosting
-                            </p>
-                            <a
-                                href="https://wandervista-qq8u.onrender.com/"
-                                className="btn btn-primary project-btn"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                View WanderVista
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </Slider>
-        </div>
+        </section>
     );
 }
 
-export default Hero;
-
-
-// Hero.css
-// .project-card {
-//     width: 100%;
-//     max-width: 450px;
-// }
+export default Projects;
