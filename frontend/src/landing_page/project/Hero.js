@@ -18,6 +18,15 @@ function Projects() {
             link: 'https://cozy-stay-yths.onrender.com/listings',
         },
         {
+            title: 'TradeNova',
+            tag: 'MERN+MySQL',
+            icon: '🎥',
+            img: 'media/images/Pro6.png',
+            desc: 'A production-ready crypto trading admin dashboard built from scratch using MERN Stack + MySQL.',
+            tech: ['React', 'Express.js', 'Socket.io', 'Node.js', 'MySQl', 'talwindcss'],
+            link: 'https://trade-nova-virid.vercel.app/',
+        },
+        {
             title: 'ECHOMEET',
             tag: 'WebRTC',
             icon: '🎥',
